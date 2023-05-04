@@ -1,0 +1,35 @@
+.Profile-Container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-width: 100%;
+    min-height: 50px;
+    /* background-color: rgb(44, 209, 94); */
+    
+}
+
+.Profile-Second-Container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.Profile-Container .App-Logo{
+    max-width: 30px;
+    color: white;
+}
+
+.Username-Text {
+    font-size: 15px;
+    color: white;
+}
+
+.Button-Container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 15px;
+    border-radius: 10px;
+    width: 70px;
+    background-color: white;
+}

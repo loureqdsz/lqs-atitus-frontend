@@ -1,0 +1,44 @@
+.Modal-Container{
+    display: block;
+    max-width: 50vh;
+    max-height: 60vh;
+    padding: 3vh;
+}
+
+.Modal-Title {
+    font-size: 22px;
+    color: #ae0f0f;
+    margin-bottom: 2px;
+}
+
+.Separator {
+    display: flex;
+    background-color: #ae0f0f;
+    height: 1px;
+    margin-bottom: 15px;
+}
+
+.Modal-Content {
+    margin-bottom: 10px;
+}
+
+.Text-Title {
+    display: flex;
+}
+
+.Close-Button{
+    display: flex;
+    justify-content: end;
+    width: 100%;
+}
+
+.Modal-Text-Container{
+    font-family: "Gill Sans", sans-serif;
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+.Modal-Text-Title{
+    font-weight: bold;
+    color: rgb(90, 89, 89);
+}
