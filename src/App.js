@@ -1,11 +1,16 @@
 import './App.css';
-// import { MenuPage } from './Pages/MenuPage/index.js'
+import { Routes, Route} from 'react-router-dom';
 import { HomePage } from './Pages/HomePage/index.js'
+import { MenuPage } from './Pages/MenuPage/index.js'
 
 function App() {
   return (
     <div className="App">
-      <HomePage />
+      <Routes>
+        <Route path="/" element={ <HomePage />} />
+        <Route path="menu" element={ <MenuPage />} />
+        <Route path="login" element={ <MenuPage />} />
+      </Routes>     
     </div>
   );
 }

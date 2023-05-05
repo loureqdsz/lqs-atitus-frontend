@@ -2,6 +2,7 @@ import './profile.css';
 // import ProfileDefault from '../../Assets/Images/Profile-Default.png'
 import Button from '@mui/material/Button'
 import { useState } from 'react';
+import { Link } from 'react-router-dom'
 
 const Profile = () => {
   const [ logado, setLogado ] = useState(false)
@@ -31,7 +32,7 @@ const Profile = () => {
     return (
         <>
             <div className='Button-Container'>
-                <Button sx={{ color: "red"}} size="small" onClick={onClick}>{buttonTitle}</Button>
+                <Button sx={{ color: "red"}} size="small" component={Link} to="/">{buttonTitle}</Button>
             </div> 
         </>
     )

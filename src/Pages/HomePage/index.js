@@ -3,6 +3,7 @@ import CardapioLogo from '../../Assets/Images/Logo-Cardapio.png'
 import Button from '@mui/material/Button';
 import { styled } from '@mui/material/styles';
 import { red } from '@mui/material/colors';
+import { Link } from 'react-router-dom'
 
 const HomePage = () => {
     const ColorButton = styled(Button)(({ theme }) => ({
@@ -19,7 +20,7 @@ const HomePage = () => {
             <div className="Home">
                 <div className="Header">
                     <div className="Login-Button">
-                        <ColorButton variant="outlined" size="large" onClick={() => console.log('Clicando Entrar')}>
+                        <ColorButton variant="outlined" size="large" component={Link} to="menu">
                             Entrar
                         </ColorButton>
                     </div>
@@ -29,7 +30,7 @@ const HomePage = () => {
                         <img src={CardapioLogo} className="App-Restaurant-Logo" alt="CardapioLogo" />
                     </div>
                     <div className="Cardapio-Button"> 
-                        <ColorButton variant="outlined" size="large" onClick={() => console.log('Clicando Abrir Cardapio')}>
+                        <ColorButton variant="outlined" size="large" component={Link} to="menu">
                             Visualizar Cardápio
                         </ColorButton>
                     </div>
