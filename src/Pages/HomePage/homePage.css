@@ -1,0 +1,44 @@
+.Home-Background {
+    background-image: url("../../Assets/Images/HomeBackground.jpg");
+    width: 100%;
+    height: 100%;
+}
+
+.Home {
+    background-color: rgba(0, 0, 0, 0.664);
+    width: 100%;
+    height: 100%;
+}
+
+.Header {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    width: 100%;
+    height: 15%;
+}
+
+.Login-Button {
+    margin-right: 4%;
+}
+
+.Home-Content {
+    width: 100%;
+    height: 85%;
+    padding-top: 5%;
+}
+
+.Logo-Cardapio {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 5%;
+}
+
+.Cardapio-Button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
