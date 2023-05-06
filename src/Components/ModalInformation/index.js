@@ -11,12 +11,12 @@ import Input from '@mui/material/Input';
 
 const ModalInformation = ({ onClose, open, item, editingMode }) => {
     const [isEditing, setIsEditing] = useState(editingMode)
-    const [ name, setName ] = useState(item.name)
-    const [ size, setSize ] = useState(item.size)
-    const [ preparationTime, setPreparationTime ] = useState(item.preparationTime)
-    const [ price, setPrice ] = useState(item.price)
-    const [ desciption, setDesciption ] = useState(item.description)
-    const [ imageUrl, setImageUrl ] = useState(item.img)
+    const [ name, setName ] = useState(item?.name)
+    const [ size, setSize ] = useState(item?.size)
+    const [ preparationTime, setPreparationTime ] = useState(item?.preparationTime)
+    const [ price, setPrice ] = useState(item?.price)
+    const [ desciption, setDesciption ] = useState(item?.description)
+    const [ imageUrl, setImageUrl ] = useState(item?.img)
 
     //------------ Updating States -----------------------------
     
@@ -55,6 +55,12 @@ const ModalInformation = ({ onClose, open, item, editingMode }) => {
             backgroundColor: green[500]
         },
     })
+
+    const FormControlStyled = styled(FormControl)({
+        '& .MuiInput-underline:after': {
+            borderBottomColor: grey[600],
+        }
+    })
     //------------ Handle Functions -----------------------------
     const handleClose = () => {
         setIsEditing(false)
@@ -89,14 +95,14 @@ const ModalInformation = ({ onClose, open, item, editingMode }) => {
     const renderTextField = (itemValue, onChange) => {
         return (
             <div className="Input-Container">
-                <FormControl variant="standard" sx={{ m: 1, width: '100%', margin: '0px' }} disabled={!isEditing}>
+                <FormControlStyled variant="standard" sx={{ m: 1, width: '100%', margin: '0px' }} disabled={!isEditing}>
                     <Input
                     id="standard-adornment-weight"
                     aria-describedby="standard-weight-helper-text"
                     defaultValue={itemValue}
                     onChange={(e)=>handleInputChange(e.target.value, onChange)}
                     />
-                </FormControl>
+                </FormControlStyled>
             </div>
         )
     }

@@ -18,19 +18,19 @@ const ItemDescription = ({ item }) => {
                 <div className='Description-Container'>
                     <div className="Primary-Container">
                         <span className="Label">Pizza</span>
-                        <span className="Label-Description">{item.name}</span>
+                        <span className="Label-Description">{item?.name}</span>
                         <span className="Second-Label">Tamanho Disponível</span>
                         <span className="Second-Label-Description">{item.size}</span>
                     </div>
                     <div className="Secondary-Container">
                         <span className="Second-Label">Tempo de Preparo</span>
-                        <span className="Second-Label-Description">{item.preparationTime}</span>
+                        <span className="Second-Label-Description">{item?.preparationTime}</span>
                         <span className="Second-Label">Valor</span>
-                        <span className="Second-Label-Description">{item.price}</span>
+                        <span className="Second-Label-Description">{item?.price}</span>
                     </div>
                     <div className="Tertiary-Container">
                         <span className="Second-Label">Descrição</span>
-                        <span className="Second-Label-Description">{item.description}</span>
+                        <span className="Second-Label-Description">{item?.description}</span>
                     </div>
                 </div>
                 <div className="More-Information">

@@ -35,7 +35,7 @@ const ItemLists = ({ key, itemIndex, item }) => {
             <ListItemText>
               <div className="List-Item-Content">
                 <div className="Item-Image">
-                  <img src={item.img} className="Pizza-Image" alt="PizzaAvatarImage" />
+                  <img src={item?.img} className="Pizza-Image" alt="PizzaAvatarImage" />
                 </div>
                 <ItemDescription item={item}/>
               </div>
