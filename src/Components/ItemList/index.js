@@ -41,7 +41,7 @@ const ItemLists = ({ key, itemIndex, item }) => {
               </div>
             </ListItemText>
         </ListItemButton>
-        <ModalInformation onClose={handleClose} open={open} item={item}/>
+        {open && <ModalInformation onClose={handleClose} open={open} item={item} editingMode={false}/>}
     </div>
   );
 }

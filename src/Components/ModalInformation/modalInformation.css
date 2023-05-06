@@ -10,7 +10,51 @@
     width: 540px;
     justify-content: space-between;
     margin-bottom: 2px;
-    /* background-color: yellow; */
+}
+
+.Input-Container {
+    margin-bottom: 10px;
+}
+
+.Url-Field {
+    margin-top: 35px;
+}
+
+.Primary-Content {
+    display: flex;
+    margin-bottom: 20px;
+}
+
+.Secondary-Content {
+    width: 50%;
+    margin-bottom: 7px;
+}
+
+.Tertiary-Content {
+    margin-bottom: 7px;
+}
+
+.Item-image {    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 165px;
+    height: 115px;
+    background-color: rgb(209, 44, 44);
+    border-color: rgb(209, 44, 44);
+    border-width: 1px;
+    border-style: solid;
+    margin-right: 20px;
+}
+
+.Pizza-Image{
+    width: 98%;
+    height: 98%;
+}
+
+.Item-Content {
+    display: block;
+    width: 65%;
 }
 
 .Title-Name {
@@ -25,7 +69,6 @@
 }
 
 .Modal-Content {
-    background-color: violet;
     margin-bottom: 10px;
 }
 
@@ -33,10 +76,17 @@
     display: flex;
 }
 
-.Close-Button{
+.Container-Buttons{
     display: flex;
     justify-content: end;
     width: 100%;
+}
+
+.Container-Button {
+    display: flex;
+    justify-content: end;
+    width: 100px;
+    margin-left: 15px;
 }
 
 .Modal-Text-Container{
@@ -46,6 +96,18 @@
 }
 
 .Modal-Text-Title{
+    display: block;
+    color: rgb(90, 89, 89);
+    font-family: "Gill Sans", sans-serif;    
+    font-size: 18px;
+}
+
+.Modal-Text-Description {
+    display: flex;
+    font-family: "Gill Sans", sans-serif;
+    text-align: justify;
+    font-size: 20px;
     font-weight: bold;
     color: rgb(90, 89, 89);
+    margin-bottom: 7px;
 }

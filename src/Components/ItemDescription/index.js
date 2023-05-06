@@ -35,7 +35,7 @@ const ItemDescription = ({ item }) => {
                 </div>
                 <div className="More-Information">
                     <div className="Label-Click">
-                        <span className="Label-Description">Mais Informações</span>
+                        <span className="Label-Description">Mais Ações</span>
                         <LaunchIcon />
                     </div>
                 </div>
