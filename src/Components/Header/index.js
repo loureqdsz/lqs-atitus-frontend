@@ -28,7 +28,7 @@ const Header = () => {
                     </ColorIconButton>
                     <div className="Header-Title">
                         <span>
-                            Atitus Cardápio
+                            Cardápio
                         </span>
                     </div>
                 </div>

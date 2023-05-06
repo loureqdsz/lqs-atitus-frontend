@@ -33,6 +33,9 @@ const HomePage = () => {
                     <div className="Logo-Cardapio">
                         <img src={CardapioLogo} className="Home-Restaurant-Logo" alt="CardapioLogo" />
                     </div>
+                    <div className="Restaurant-Title">
+                        <span className="Restaurant-Name">ATITUS RESTAURANTE</span>
+                    </div>
                     <div className="Cardapio-Button"> 
                         <ColorButton variant="outlined" size="large" onClick={() => navigate('/menu')}>
                             Visualizar Cardápio

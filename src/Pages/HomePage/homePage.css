@@ -25,7 +25,7 @@
 .Home-Content {
     width: 100%;
     height: 85%;
-    padding-top: 5%;
+    padding-top: 3%;
 }
 
 .Logo-Cardapio {
@@ -33,7 +33,6 @@
     justify-content: center;
     align-items: center;
     width: 100%;
-    margin-bottom: 5%;
 }
 
 .Cardapio-Button {
@@ -41,4 +40,17 @@
     justify-content: center;
     align-items: center;
     width: 100%;
+}
+
+.Restaurant-Title{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 4%;
+}
+
+.Restaurant-Name {
+    font-size: 34px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: rgba(237,54,40,255);
 }
