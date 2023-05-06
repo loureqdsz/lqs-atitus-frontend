@@ -10,22 +10,22 @@ const Header = () => {
     const navigate = useNavigate();
 
     //------------ Styled Components ---------------------------
-    const ColorIconButton = styled(IconButton)(({ theme }) => ({
+    const BackButton = styled(IconButton)({
         color: "white",
         '&:hover': {
             color: grey[300],
             backgroundColor: grey[900]
         },
-    }))
+    })
     //------------ ------------------ ---------------------------
 
     return (
         <>
             <div className="Header-Container">
                 <div className="Header-Second-Container">
-                    <ColorIconButton aria-label="delete" size="large" onClick={() => navigate('/')}>
+                    <BackButton aria-label="delete" size="large" onClick={() => navigate('/')}>
                         <ArrowBackIcon />
-                    </ColorIconButton>
+                    </BackButton>
                     <div className="Header-Title">
                         <span>
                             Cardápio

@@ -9,14 +9,14 @@ const HomePage = () => {
     const navigate = useNavigate();
 
     //------------ Styled Components ---------------------------
-    const ColorButton = styled(Button)(({ theme }) => ({
+    const ColorButton = styled(Button)({
         color: red[400],
         borderColor: red[400],
         '&:hover': {
             color: red[900],
             borderColor: red[900]
         },
-    }))
+    })
     //------------ ------------------ ---------------------------
 
     return (

@@ -12,22 +12,22 @@ const Profile = () => {
   const [ username, setUsername ] = useState('Lourenco Quadros de Souza')
 
   //------------ Styled Components ---------------------------
-  const LoginButton = styled(Button)(({ theme }) => ({
+  const LoginButton = styled(Button)({
     color: "black",
     backgroundColor: 'white',
     '&:hover': {
         color: "black",
         backgroundColor: grey[400]
     },
-  }))
+  })
 
-  const LogoutButton = styled(Button)(({ theme }) => ({
+  const LogoutButton = styled(Button)({
     color: "white",
     padding: '0',
     '&:hover': {
         color: grey[400],
     },
-  }))
+  })
   //------------ Handle Functions -----------------------------  
   const handleLoginClick = () => {
     // navigate("/login")

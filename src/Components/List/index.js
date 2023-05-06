@@ -19,6 +19,38 @@ const CardapioList = ({ searchedValue, page }) => {
     {
         id: 3,
         img: Cardapio
+    }, 
+    {
+        id: 4,
+        img: Cardapio
+    }, 
+    {
+        id: 5,
+        img: Cardapio
+    }, 
+    {
+        id: 6,
+        img: Cardapio
+    }
+    , 
+    {
+        id: 7,
+        img: Cardapio
+    }
+    , 
+    {
+        id: 8,
+        img: Cardapio
+    }
+    , 
+    {
+        id: 9,
+        img: Cardapio
+    }
+    , 
+    {
+        id: 10,
+        img: Cardapio
     }
   ]
   return (
