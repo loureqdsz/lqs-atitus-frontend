@@ -1,14 +1,17 @@
 .Header-Container{
     display: flex;
-    padding-left: 10px;
+    padding-left: 25px;
     padding-top: 10px;
-    padding-right: 10px;
+    padding-right: 25px;
     padding-bottom: 10px;
     margin-bottom: 15px;
     align-items: center;
     justify-content: space-between;
     max-height: 90px;
-    background-color: rgb(209, 44, 44);
+    background-color: rgb(17, 16, 16);    
+    border-bottom-color: rgb(209, 44, 44);
+    border-bottom-width: 4px;
+    border-bottom-style: groove;
     box-shadow: 8px 8px 10px rgb(182, 182, 182);
 }
 
@@ -18,13 +21,9 @@
     padding-right: 10px;
 }
 
-.App-Logo{
-    margin-right: 20px;
-    max-width: 150px;
-}
-
-.App-Title {
+.Header-Title {
     font-size: 25px;
     color:rgb(255, 255, 255);
     font-family: "Gill Sans", sans-serif;
+    margin-left: 15px;
 }

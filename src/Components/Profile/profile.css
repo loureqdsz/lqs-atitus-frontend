@@ -1,16 +1,15 @@
-.Profile-Container{
+.Profile{
     display: flex;
     align-items: center;
     justify-content: center;
     max-width: 100%;
     min-height: 50px;
-    /* background-color: rgb(44, 209, 94); */
-    
+    margin-right: 13px;    
 }
 
-.Profile-Second-Container {
-    display: flex;
-    align-items: center;
+.Profile-Container {
+    display: block;
+    align-items: flex-end;
     justify-content: center;
 }
 
@@ -19,7 +18,20 @@
     color: white;
 }
 
+.Profile-Button-Container {
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+}
+
+.Profile-Display-Name {
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+}
+
 .Username-Text {
+    margin-right: 16px;
     font-size: 15px;
     color: white;
 }

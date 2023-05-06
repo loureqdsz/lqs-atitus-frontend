@@ -3,9 +3,12 @@ import CardapioLogo from '../../Assets/Images/Logo-Cardapio.png'
 import Button from '@mui/material/Button';
 import { styled } from '@mui/material/styles';
 import { red } from '@mui/material/colors';
-import { Link } from 'react-router-dom'
+import { useNavigate } from "react-router-dom";
 
 const HomePage = () => {
+    const navigate = useNavigate();
+
+    //------------ Styled Components ---------------------------
     const ColorButton = styled(Button)(({ theme }) => ({
         color: red[400],
         borderColor: red[400],
@@ -14,23 +17,24 @@ const HomePage = () => {
             borderColor: red[900]
         },
     }))
+    //------------ ------------------ ---------------------------
 
     return (
         <div className="Home-Background">
             <div className="Home">
                 <div className="Header">
                     <div className="Login-Button">
-                        <ColorButton variant="outlined" size="large" component={Link} to="menu">
+                        <ColorButton variant="outlined" size="large" onClick={() => navigate('/login')}>
                             Entrar
                         </ColorButton>
                     </div>
                 </div>
                 <div className="Home-Content">                    
                     <div className="Logo-Cardapio">
-                        <img src={CardapioLogo} className="App-Restaurant-Logo" alt="CardapioLogo" />
+                        <img src={CardapioLogo} className="Home-Restaurant-Logo" alt="CardapioLogo" />
                     </div>
                     <div className="Cardapio-Button"> 
-                        <ColorButton variant="outlined" size="large" component={Link} to="menu">
+                        <ColorButton variant="outlined" size="large" onClick={() => navigate('/menu')}>
                             Visualizar Cardápio
                         </ColorButton>
                     </div>
