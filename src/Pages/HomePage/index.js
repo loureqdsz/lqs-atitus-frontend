@@ -29,7 +29,7 @@ const HomePage = () => {
                         </ColorButton>
                     </div>
                 </div>
-                <div className="Home-Content">                    
+                <div className="Home-Content">
                     <div className="Logo-Cardapio">
                         <img src={CardapioLogo} className="Home-Restaurant-Logo" alt="CardapioLogo" />
                     </div>

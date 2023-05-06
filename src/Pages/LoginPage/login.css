@@ -1,0 +1,87 @@
+.Login-Background {
+    background-image: url("../../Assets/Images/HomeBackground.jpg");
+    width: 100%;
+    height: 100%;
+}
+
+.Login {
+    background-color: rgba(0, 0, 0, 0.664);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+}
+
+.Login-Content {
+    display: block;
+    background-color: white;
+    padding-left: 25px;
+    padding-top: 25px;
+    padding-right: 25px;
+    padding-bottom: 25px;
+    border-radius: 10px;
+    width: 30%;
+    height: 60%;
+}
+
+.Login-Header {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    height: 8%;
+}
+
+.Login-Separator {
+    background-color: rgb(236,44,28);
+    height: 2px;
+    width: 100%;
+}
+
+.Login-Logo-Content {
+    display: block;
+    width: 100%;
+    height: 35%;
+    margin-bottom: 30px;
+}
+
+.Login-Logo-Image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 80%;
+}
+
+.Login-Restaurant-Logo {
+    width: 40%;
+    height: 90%;
+}
+
+.Login-Restaurant-Title{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.Login-Restaurant-Name {
+    font-size: 30px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: rgba(237,54,40,255);
+}
+
+.Login-Input-Content{
+    width: 100%;
+    height: 25%;
+    margin-bottom: 2px;
+    margin-top: 15px;
+}
+
+.Login-Input-Component{
+    margin-bottom: 20px;
+}
+
+.Login-Buttons{
+    margin-bottom: 10px;
+}

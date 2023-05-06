@@ -30,8 +30,8 @@ const Profile = () => {
   })
   //------------ Handle Functions -----------------------------  
   const handleLoginClick = () => {
-    // navigate("/login")
-    setIsLogged(true)
+    navigate("/login")
+    // setIsLogged(true)
   }
   
   const handleLogoutClick = () => {
@@ -56,11 +56,22 @@ const Profile = () => {
     )
   }
 
+  const renderProfile = () => {
+    if (isLogged) {
+      return renderLoginInfo()
+    }
+
+    return (
+      <>
+        <LoginButton size="medium"  onClick={() => handleLoginClick()}>Entrar</LoginButton>
+      </>
+    )
+  }
+
   return (
     <>
         <div className="Profile"> 
-            {isLogged && renderLoginInfo()}
-            {!isLogged && <LoginButton size="medium"  onClick={() => handleLoginClick()}>Entrar</LoginButton>}
+            {renderProfile()}
         </div>
     </>
   );
