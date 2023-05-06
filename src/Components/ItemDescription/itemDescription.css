@@ -1,0 +1,99 @@
+.Item-Description-Container{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    /* background-color: yellow; */
+}
+
+.Description-Container{
+    display: flex;
+    align-items: flex-end;
+    width: 85%;
+}
+
+.Primary-Container {
+    display: block;
+    width: 30%;
+    margin-right: 10px;
+    font-family: "Gill Sans", sans-serif;
+}
+
+.Secondary-Container {
+    display: block;
+    width: 15%;
+    margin-right: 15px;
+    font-family: "Gill Sans", sans-serif;
+}
+
+.Tertiary-Container {
+    display: block;
+    width: 55%;
+    margin-right: 20px;
+    font-family: "Gill Sans", sans-serif;
+}
+
+.Label {
+    display: block;
+    font-size: 18px;
+}
+
+.Label-Description {
+    font-size: 20px;
+    font-weight: bold;
+    color: rgb(90, 89, 89);
+}
+
+.Second-Label {
+    display: block;
+    font-size: 16px;
+}
+
+.Second-Label-Description {
+    font-size: 14px;
+    font-weight: bold;
+    color: rgb(90, 89, 89);
+}
+
+.More-Information {
+    display: flex;
+    align-items: end;
+}
+
+.More-Information .Label-Description {
+    font-size: 18px;
+    color: rgb(236,44,28)
+}
+
+.Label-Click {
+    display: flex;
+}
+
+@media (max-width: 450px) {
+    .Item-Description-Container{
+        display: block;
+    }
+    
+    .Description-Container{
+        display: block;
+    }
+
+    .Primary-Container{
+        width: 100%;
+        margin-bottom: 15px;
+    }
+
+    .Secondary-Container{
+        width: 100%;
+        margin-bottom: 15px;
+    }
+
+    .Tertiary-Container{
+        width: 100%;
+        margin-bottom: 15px;
+    }
+
+    .Text-Container {
+        font-family: "Gill Sans", sans-serif;
+        margin-bottom: 6px;
+    }
+}

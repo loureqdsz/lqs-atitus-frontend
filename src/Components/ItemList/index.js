@@ -27,18 +27,18 @@ const ItemLists = ({ key, itemIndex, item }) => {
             sx={{
                 backgroundColor: (itemIndex % 2 === 0) ? '##f5f5f5' : '#edecec',
                 ":hover": {
-                    background: '#93d7ef'
+                    background: '#f4827a'
                 }
             }}
             
         >
-            <ListItemAvatar>
-                <Avatar>
-                    <img src={item.img} className="Pokemon-Image" alt="PokemonAvatarImage" />
-                </Avatar>
-            </ListItemAvatar>
             <ListItemText>
+              <div className="List-Item-Content">
+                <div className="Item-Image">
+                  <img src={item.img} className="Pizza-Image" alt="PizzaAvatarImage" />
+                </div>
                 <ItemDescription item={item}/>
+              </div>
             </ListItemText>
         </ListItemButton>
         <ModalInformation onClose={handleClose} open={open} item={item}/>

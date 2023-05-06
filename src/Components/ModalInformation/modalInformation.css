@@ -1,24 +1,31 @@
 .Modal-Container{
     display: block;
-    max-width: 50vh;
-    max-height: 60vh;
+    max-width: 110vh;
+    max-height: 120vh;
     padding: 3vh;
 }
 
 .Modal-Title {
-    font-size: 22px;
-    color: #ae0f0f;
+    display: flex;
+    width: 540px;
+    justify-content: space-between;
     margin-bottom: 2px;
+    /* background-color: yellow; */
+}
+
+.Title-Name {
+    font-size: 22px;
+    color: rgb(236,44,28);
 }
 
 .Separator {
-    display: flex;
-    background-color: #ae0f0f;
+    background-color: rgb(236,44,28);
     height: 1px;
     margin-bottom: 15px;
 }
 
 .Modal-Content {
+    background-color: violet;
     margin-bottom: 10px;
 }
 

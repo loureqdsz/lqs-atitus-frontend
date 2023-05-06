@@ -1,5 +1,23 @@
-.Pokemon-Image{
-    width: 70px;
+.List-Item-Content {
+    display: flex;
+}
+
+.Item-Image{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 150px;
+    height: 100px;
+    background-color: rgb(209, 44, 44);
+    border-color: rgb(209, 44, 44);
+    border-width: 1px;
+    border-style: solid;
+    margin-right: 20px;
+}
+
+.Pizza-Image{
+    width: 98%;
+    height: 98%;
 }
 
 .List-Button {

@@ -1,43 +1,39 @@
-import { Dialog, Button } from '@mui/material';
 import './modalInformation.css';
+import { Dialog, Button } from '@mui/material';
+import IconButton from '@mui/material/IconButton';
+import CloseIcon from '@mui/icons-material/Close';
+import { styled } from '@mui/material/styles';
 
 
 const ModalInformation = ({ onClose, open, item }) => {
-  // ---------------- Render Functions ------------------------------
-//   const renderMultiValues = (values, itemField) => {
-//     if (!values) {
-//         return
-//     }
-//     let multiLabel = ''
-//     for (let i = 0; i < values.length; i++) {
-//         multiLabel = `${values[i][itemField].name}, ` + multiLabel
-//     }
-//     multiLabel = multiLabel.slice(0, multiLabel.length-2)
-//     return (
-//         <span className="Modal-Text-Description">{multiLabel}</span>
-//     )
-//   }
 
-//   const renderMultiStatsValues = (values) => {
-//     if (!values) {
-//         return
-//     }
-//     let multiLabel = ''
-//     for (let i = 0; i < values.length; i++) {
-//         multiLabel = `${values[i].stat.name}: ${values[i]['base_stat']}, ` + multiLabel
-//     }
-//     multiLabel = multiLabel.slice(0, multiLabel.length-2)
-//     return (
-//         <span className="Modal-Text-Description">{multiLabel}</span>
-//     )
-//   }
-  // ----------------------------------------------------------------
+    //------------ Styled Components ---------------------------
+    const BackButton = styled(IconButton)({
+        color: 'rgba(237,54,40,255)',
+        '&:hover': {
+            color: "white",
+            backgroundColor: "rgb(244,130,122)"
+        },
+      })
+
+    const Primary = styled(Button)({
+        color: "white",
+        backgroundColor: 'rgba(237,54,40,255)',
+        '&:hover': {
+            color: "white",
+            backgroundColor: "rgb(244,130,122)"
+        },
+      })
+    //------------ ------------------ ---------------------------
 
   return (
     <Dialog open={open}>
         <div className="Modal-Container">
             <div className="Modal-Title">
-                <span>Estatisticas da Pizza Teste</span>
+                <span className="Title-Name">Pizza {item.name}</span>
+                <BackButton aria-label="delete" size="medium" onClick={onClose}>
+                    <CloseIcon />
+                </BackButton>
             </div>
             <div className="Separator" />
             <div className="Modal-Content">
@@ -59,16 +55,9 @@ const ModalInformation = ({ onClose, open, item }) => {
                 </div>
             </div>
             <div className= "Close-Button">
-                <Button 
-                    variant="contained" 
-                    onClick={onClose}
-                    sx={{
-                        backgroundColor: '#0F84AE',
-                        borderRadius: '15px'
-                    }}
-                >
-                        Fechar
-                </Button>                            
+                <Primary variant="contained" onClick={onClose} >
+                        Editar
+                </Primary>                            
             </div>
         </div>
     </Dialog>
