@@ -1,5 +1,5 @@
 import './modalInformation.css';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { Dialog, Button } from '@mui/material';
 import IconButton from '@mui/material/IconButton';
 import CloseIcon from '@mui/icons-material/Close';
@@ -9,16 +9,38 @@ import FormControl from '@mui/material/FormControl';
 import Input from '@mui/material/Input';
 
 
-const ModalInformation = ({ onClose, open, item, editingMode }) => {
-    const [isEditing, setIsEditing] = useState(editingMode)
+const ModalInformation = ({ onClose, onSave, open, item, isMenuItemModal = false }) => {
+    const [isEditing, setIsEditing] = useState(false)
     const [ name, setName ] = useState(item?.name)
     const [ size, setSize ] = useState(item?.size)
     const [ preparationTime, setPreparationTime ] = useState(item?.preparationTime)
     const [ price, setPrice ] = useState(item?.price)
-    const [ desciption, setDesciption ] = useState(item?.description)
+    const [ description, setDescription ] = useState(item?.description)
     const [ imageUrl, setImageUrl ] = useState(item?.img)
 
     //------------ Updating States -----------------------------
+
+    //------------ Util Functions -----------------------------
+
+    const deleteMenuItem = (item) => {
+        fetch(
+            'http://localhost:3001/delete-menu-item', {
+                method: 'POST',
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(item),
+            }
+          )
+    }
+
+    const shouldDisableTheField = () => {
+        if (isMenuItemModal) {
+            return false
+        }
+
+        return !isEditing
+    }
     
     //------------ Styled Components ---------------------------
     const BackButton = styled(IconButton)({
@@ -55,12 +77,6 @@ const ModalInformation = ({ onClose, open, item, editingMode }) => {
             backgroundColor: green[500]
         },
     })
-
-    const FormControlStyled = styled(FormControl)({
-        '& .MuiInput-underline:after': {
-            borderBottomColor: grey[600],
-        }
-    })
     //------------ Handle Functions -----------------------------
     const handleClose = () => {
         setIsEditing(false)
@@ -68,58 +84,66 @@ const ModalInformation = ({ onClose, open, item, editingMode }) => {
     }
 
     const handleEdit = () => {
-        console.log('Item Editado')
         setIsEditing(true)
     }
 
     const handleDelete = () => {
-        console.log('Item Deletado')
+        const itemId = {
+            itemId: item.id
+        }
+        deleteMenuItem(itemId)
         onClose()
     }
 
     const handleCancel = () => {
-        console.log('Edicao Cancelada')        
+        if (isMenuItemModal) {
+            onClose()
+        }
         setIsEditing(false)
     }
 
     const handleSave = () => {
-        console.log('Edicao Salvada')
-        setIsEditing(false)
+        const newObj = {
+            img: imageUrl,
+            name: name,
+            size: size,
+            preparationTime: preparationTime,
+            price: price,
+            description: description
+        }
+        onSave(newObj)
+        onClose()
     }
 
-    const handleInputChange = (value, onChange) => {
-        console.log(value)
-        onChange(value)
-    }
     //------------ Render Functions -----------------------------
     const renderTextField = (itemValue, onChange) => {
         return (
             <div className="Input-Container">
-                <FormControlStyled variant="standard" sx={{ m: 1, width: '100%', margin: '0px' }} disabled={!isEditing}>
+                <FormControl variant="standard" sx={{ m: 1, width: '100%', margin: '0px', '& .MuiInput-underline:after': { borderBottomColor: 'black' } }} disabled={shouldDisableTheField()}>
                     <Input
                     id="standard-adornment-weight"
                     aria-describedby="standard-weight-helper-text"
                     defaultValue={itemValue}
-                    onChange={(e)=>handleInputChange(e.target.value, onChange)}
+                    onChange={(e) => onChange(e.target.value)}
                     />
-                </FormControlStyled>
+                </FormControl>
             </div>
         )
     }
 
-    const renderUrlField = (value) => {
+    const renderUrlField = (value, onChange) => {
         return (
             <div className="Url-Field">
                 <div className="Tertiary-Content">
                     <span className="Modal-Text-Title">Foto Url: </span>
-                    {renderTextField(value)}
+                    {renderTextField(value, onChange)}
                 </div>
             </div>
         )
     }
     
     const renderModalButtons = () => {
-        if (isEditing) {
+        if (isEditing || isMenuItemModal) {
             return (
                 <>
                     <div className="Container-Button">
@@ -187,9 +211,9 @@ const ModalInformation = ({ onClose, open, item, editingMode }) => {
                 </div>
                 <div className="Tertiary-Content">
                     <span className="Modal-Text-Title">Descrição: </span>
-                    {renderTextField(desciption, setDesciption)}
+                    {renderTextField(description, setDescription)}
                 </div>
-                {isEditing && renderUrlField(imageUrl, setImageUrl)}
+                {(isEditing || isMenuItemModal) && renderUrlField(imageUrl, setImageUrl)}
             </div>
             <div className= "Container-Buttons">
                 {renderModalButtons()}

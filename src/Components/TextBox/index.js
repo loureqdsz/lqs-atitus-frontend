@@ -6,30 +6,10 @@ import { grey } from '@mui/material/colors';
 import './textBox.css';
 
 const TextBox = ({ value, onChange }) => {
-  //------------ Styled Components ---------------------------
-    const StyledTextField = styled(TextField)({
-      '& label.Mui-focused': {
-        color: grey[600],
-      },
-      '& .MuiInput-underline:after': {
-        borderBottomColor: grey[600],
-      },
-      '& .MuiOutlinedInput-root': {
-        '& fieldset': {
-          borderColor: grey[600],
-        },
-        '&:hover fieldset': {
-          borderColor: grey[600],
-        },
-        '&.Mui-focused fieldset': {
-          borderColor: grey[600],
-        },
-      },
-    });
-  //------------ ------------------ ---------------------------
   return (
-    <>
-        <StyledTextField
+      <>
+        <TextField
+            sx={{ '& .MuiInput-underline:after': { borderBottomColor: 'black' }, '& label.Mui-focused': { color: 'black' } }}
             id="text-field"
             label="Pesquisar Pizza"
             variant="standard"

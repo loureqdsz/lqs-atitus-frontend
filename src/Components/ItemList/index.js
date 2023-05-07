@@ -1,5 +1,5 @@
-import { useEffect, useState } from 'react';
-import { ListItemButton, ListItemText, ListItemAvatar, Avatar } from '@mui/material';
+import { useState } from 'react';
+import { ListItemButton, ListItemText } from '@mui/material';
 import { ItemDescription } from '../ItemDescription/index.js';
 import { ModalInformation } from '../ModalInformation/index.js';
 import './itemList.css';
@@ -7,6 +7,20 @@ import './itemList.css';
 
 const ItemLists = ({ key, itemIndex, item }) => {
   const [open, setOpen] = useState(false)
+
+  //------------ Util Functions -----------------------------
+
+  const updateMenuItem = (item) => {
+    fetch(
+        'http://localhost:3001/update-menu-item', {
+            method: 'POST',
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(item),
+        }
+      )
+  }
 
   // ---------------- Handle Functions ------------------------------
 
@@ -18,6 +32,13 @@ const ItemLists = ({ key, itemIndex, item }) => {
     setOpen(false);
   };
 
+  const handleEditItem = (obj) => {
+    const updatedItem = {
+      itemId: item.id,
+      ...obj
+    }
+    updateMenuItem(updatedItem)
+  }
   // ----------------------------------------------------------------
 
   return (
@@ -41,7 +62,7 @@ const ItemLists = ({ key, itemIndex, item }) => {
               </div>
             </ListItemText>
         </ListItemButton>
-        {open && <ModalInformation onClose={handleClose} open={open} item={item} editingMode={false}/>}
+        {open && <ModalInformation onClose={handleClose} onSave={handleEditItem} open={open} item={item} editingMode={false}/>}
     </div>
   );
 }

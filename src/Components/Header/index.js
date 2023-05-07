@@ -17,13 +17,22 @@ const Header = () => {
             backgroundColor: grey[900]
         },
     })
+    //------------ Util Functions ==---------------------------
+    const repopulateMenuItems = () => {
+        fetch('http://localhost:3001/restore-menu', { method: 'POST' })
+    }
+    //------------ Handle Functions ==---------------------------
+    const handleBackButon = () => {
+        repopulateMenuItems()
+        navigate('/')
+    }
     //------------ ------------------ ---------------------------
 
     return (
         <>
             <div className="Header-Container">
                 <div className="Header-Second-Container">
-                    <BackButton aria-label="delete" size="large" onClick={() => navigate('/')}>
+                    <BackButton aria-label="delete" size="large" onClick={handleBackButon}>
                         <ArrowBackIcon />
                     </BackButton>
                     <div className="Header-Title">
