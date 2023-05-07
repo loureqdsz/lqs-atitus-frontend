@@ -4,10 +4,8 @@ import IconButton from '@mui/material/IconButton';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import { styled } from '@mui/material/styles';
 import { grey } from '@mui/material/colors';
-import { useNavigate } from "react-router-dom";
 
-const Header = () => {
-    const navigate = useNavigate();
+const Header = ({ backButtonClick }) => {
 
     //------------ Styled Components ---------------------------
     const BackButton = styled(IconButton)({
@@ -17,22 +15,13 @@ const Header = () => {
             backgroundColor: grey[900]
         },
     })
-    //------------ Util Functions ==---------------------------
-    const repopulateMenuItems = () => {
-        fetch('http://localhost:3001/restore-menu', { method: 'POST' })
-    }
-    //------------ Handle Functions ==---------------------------
-    const handleBackButon = () => {
-        repopulateMenuItems()
-        navigate('/')
-    }
     //------------ ------------------ ---------------------------
 
     return (
         <>
             <div className="Header-Container">
                 <div className="Header-Second-Container">
-                    <BackButton aria-label="delete" size="large" onClick={handleBackButon}>
+                    <BackButton aria-label="delete" size="large" onClick={backButtonClick}>
                         <ArrowBackIcon />
                     </BackButton>
                     <div className="Header-Title">

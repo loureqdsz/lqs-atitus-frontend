@@ -9,8 +9,10 @@ import { ModalInformation } from '../../Components/ModalInformation/index.js';
 import Button from '@mui/material/Button'
 import { styled } from '@mui/material/styles';
 import AddIcon from '@mui/icons-material/Add';
+import { useNavigate } from "react-router-dom";
 
 const MenuPage = () => {
+    const navigate = useNavigate();
     const [textBoxValue, setTextBoxValue] = useState("")    
     const [ allMenuList, setAllMenuList ] = useState(null)
     const [ menuListSubset, setMenuListSubset ] = useState(null)
@@ -77,10 +79,82 @@ const MenuPage = () => {
                 },
                 body: JSON.stringify(item),
             }
-          )
+        ).then((res) => {
+            if (res.status) {
+                return res.json()
+            }
+        }).then((data) => {
+            if (!data || data.error) {
+                console.log('Ocorreu um erro na request')
+                return
+            }
+            setMenuListSubset(data)
+        })
+    }
+
+    const updateMenuItem = (item) => {
+        fetch(
+            'http://localhost:3001/update-menu-item', {
+                method: 'POST',
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(item),
+            }
+        ).then((res) => {
+            if (res.status) {
+                return res.json()
+            }
+        }).then((data) => {
+            if (!data || data.error) {
+                console.log('Ocorreu um erro na request')
+                return
+            }
+            setMenuListSubset(data)
+        })
+      }
+
+    const deleteMenuItem = (item) => {
+        fetch(
+            'http://localhost:3001/delete-menu-item', {
+                method: 'POST',
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(item),
+            }
+        ).then((res) => {
+            if (res.status) {
+                return res.json()
+            }
+        }).then((data) => {
+            if (!data || data.error) {
+                console.log('Ocorreu um erro na request')
+                return
+            }
+            setMenuListSubset(data)
+        })
+    }
+
+    const repopulateMenuItems = () => {
+        fetch('http://localhost:3001/restore-menu', { 
+            method: 'POST' 
+            }
+        ).then((res) => {
+            if (res.status) {
+                return res.json()
+            }
+        }).then((data) => {
+            if (!data || data.error) {
+                console.log('Ocorreu um erro na request')
+                return
+            }
+            setMenuListSubset(data)
+        })
     }
 
     //------------ Handle Functions -----------------------------
+
     const handleAdd = () => {
         setIsOpen(true)
     }
@@ -89,8 +163,21 @@ const MenuPage = () => {
         setIsOpen(false)
     }
 
-    const handleAddNewItem = (obj) => {
-        createNewItem(obj)
+    const handleAddNewItem = (item) => {
+        createNewItem(item)
+    }
+
+    const handleDeleteItem = (item) => {
+        deleteMenuItem(item)
+    }
+
+    const handleUpdateItem = (item) => {
+        updateMenuItem(item)
+    }
+
+    const handleBackButtonClick = () => {
+        repopulateMenuItems()
+        navigate('/')
     }
 
     const handleSearch = (valueSearched) => {
@@ -109,11 +196,11 @@ const MenuPage = () => {
 
         setMenuListSubset(newSubset)
     }
-    //------------ ------------------ ---------------------------    
+    //------------ ------------------ ---------------------------
 
     return (
         <div className="Menu">
-            <Header />
+            <Header backButtonClick={handleBackButtonClick}/>
             <div className="Table-Header">
                 <div className="Searchbox-Content">
                     <TextBox id="search-text-box" value={textBoxValue} onChange={setTextBoxValue}/>
@@ -122,7 +209,7 @@ const MenuPage = () => {
             </div>
             <div className="Menu-Content">
                 <div className="Menu-Content-2">
-                    <CardapioList menuList={menuListSubset}/>
+                    <CardapioList menuList={menuListSubset} onUpdate={handleUpdateItem} onDelete={handleDeleteItem}/>
                 </div>
             </div>
             <Footer/>

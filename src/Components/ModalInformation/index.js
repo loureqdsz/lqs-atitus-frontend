@@ -9,7 +9,7 @@ import FormControl from '@mui/material/FormControl';
 import Input from '@mui/material/Input';
 
 
-const ModalInformation = ({ onClose, onSave, open, item, isMenuItemModal = false }) => {
+const ModalInformation = ({ onClose, onSave, onDelete, open, item, isMenuItemModal = false }) => {
     const [isEditing, setIsEditing] = useState(false)
     const [ name, setName ] = useState(item?.name)
     const [ size, setSize ] = useState(item?.size)
@@ -18,21 +18,7 @@ const ModalInformation = ({ onClose, onSave, open, item, isMenuItemModal = false
     const [ description, setDescription ] = useState(item?.description)
     const [ imageUrl, setImageUrl ] = useState(item?.img)
 
-    //------------ Updating States -----------------------------
-
     //------------ Util Functions -----------------------------
-
-    const deleteMenuItem = (item) => {
-        fetch(
-            'http://localhost:3001/delete-menu-item', {
-                method: 'POST',
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify(item),
-            }
-          )
-    }
 
     const shouldDisableTheField = () => {
         if (isMenuItemModal) {
@@ -91,7 +77,7 @@ const ModalInformation = ({ onClose, onSave, open, item, isMenuItemModal = false
         const itemId = {
             itemId: item.id
         }
-        deleteMenuItem(itemId)
+        onDelete(itemId)
         onClose()
     }
 

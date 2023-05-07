@@ -4,7 +4,7 @@ import { ItemLists } from '../ItemList/index.js';
 import './list.css';
 
 
-const CardapioList = ({ menuList }) => {
+const CardapioList = ({ menuList, onUpdate, onDelete }) => {
   return (
     <div className='List-box'> 
         <List 
@@ -15,7 +15,7 @@ const CardapioList = ({ menuList }) => {
             }}>
             {
                 menuList && menuList.map((item, index) => {
-                    return <ItemLists key={item?.id} itemIndex={index} item={item}/>
+                    return <ItemLists key={item?.id} itemIndex={index} item={item} onUpdate={onUpdate} onDelete={onDelete}/>
                 })
             }
         </List>       

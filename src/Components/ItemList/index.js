@@ -5,22 +5,8 @@ import { ModalInformation } from '../ModalInformation/index.js';
 import './itemList.css';
 
 
-const ItemLists = ({ key, itemIndex, item }) => {
+const ItemLists = ({ key, itemIndex, item, onUpdate, onDelete }) => {
   const [open, setOpen] = useState(false)
-
-  //------------ Util Functions -----------------------------
-
-  const updateMenuItem = (item) => {
-    fetch(
-        'http://localhost:3001/update-menu-item', {
-            method: 'POST',
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify(item),
-        }
-      )
-  }
 
   // ---------------- Handle Functions ------------------------------
 
@@ -37,7 +23,7 @@ const ItemLists = ({ key, itemIndex, item }) => {
       itemId: item.id,
       ...obj
     }
-    updateMenuItem(updatedItem)
+    onUpdate(updatedItem)
   }
   // ----------------------------------------------------------------
 
@@ -62,7 +48,7 @@ const ItemLists = ({ key, itemIndex, item }) => {
               </div>
             </ListItemText>
         </ListItemButton>
-        {open && <ModalInformation onClose={handleClose} onSave={handleEditItem} open={open} item={item} editingMode={false}/>}
+        {open && <ModalInformation onClose={handleClose} onSave={handleEditItem} onDelete={onDelete} open={open} item={item} editingMode={false}/>}
     </div>
   );
 }
