@@ -78,13 +78,13 @@
 
 .Container-Buttons{
     display: flex;
-    justify-content: end;
+    justify-content: flex-end;
     width: 100%;
 }
 
 .Container-Button {
     display: flex;
-    justify-content: end;
+    justify-content: flex-end;
     width: 100px;
     margin-left: 15px;
 }
