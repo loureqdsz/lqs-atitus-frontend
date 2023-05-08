@@ -5,18 +5,20 @@ import { ModalInformation } from '../ModalInformation/index.js';
 import './itemList.css';
 
 
-const ItemLists = ({ key, itemIndex, item, onUpdate, onDelete }) => {
+const ItemLists = ({ key, itemIndex, item, onUpdate, onDelete, isAuthenticated }) => {
   const [open, setOpen] = useState(false)
 
   // ---------------- Handle Functions ------------------------------
 
   const handleClickOpen = () => {
-    setOpen(true);
-  };
+    if (isAuthenticated) {
+      setOpen(true)
+    }
+  }
 
   const handleClose = (value) => {
-    setOpen(false);
-  };
+    setOpen(false)
+  }
 
   const handleEditItem = (obj) => {
     const updatedItem = {
@@ -44,7 +46,7 @@ const ItemLists = ({ key, itemIndex, item, onUpdate, onDelete }) => {
                 <div className="Item-Image">
                   <img src={item?.img} className="Pizza-Image" alt="PizzaAvatarImage" />
                 </div>
-                <ItemDescription item={item}/>
+                <ItemDescription item={item} isAuthenticated={isAuthenticated}/>
               </div>
             </ListItemText>
         </ListItemButton>

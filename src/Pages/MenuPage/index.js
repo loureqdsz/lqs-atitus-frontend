@@ -14,6 +14,7 @@ import { useNavigate } from "react-router-dom";
 const MenuPage = () => {
     const navigate = useNavigate();
     const [ userInformation, setUserInformation ] = useState(null)
+    const [ isAuthenticated, setIsAuthenticated ] = useState(false)
     const [textBoxValue, setTextBoxValue] = useState("")
     const [ allMenuList, setAllMenuList ] = useState(null)
     const [ menuListSubset, setMenuListSubset ] = useState(null)
@@ -51,6 +52,7 @@ const MenuPage = () => {
         const dataIsLoaded = params.get('dataLoaded')
         if (dataIsLoaded === 'true') {
             getUserInformation()
+            setIsAuthenticated(true)
         }
     }, [])
 
@@ -232,11 +234,11 @@ const MenuPage = () => {
                 <div className="Searchbox-Content">
                     <TextBox id="search-text-box" value={textBoxValue} onChange={setTextBoxValue}/>
                 </div>
-                <AddButton endIcon={<AddIcon />} onClick={handleAdd}>Adicionar</AddButton>
+                {isAuthenticated && <AddButton endIcon={<AddIcon />} onClick={handleAdd}>Adicionar</AddButton>}
             </div>
             <div className="Menu-Content">
                 <div className="Menu-Content-2">
-                    <CardapioList menuList={menuListSubset} onUpdate={handleUpdateItem} onDelete={handleDeleteItem}/>
+                    <CardapioList menuList={menuListSubset} onUpdate={handleUpdateItem} onDelete={handleDeleteItem} isAuthenticated={isAuthenticated}/>
                 </div>
             </div>
             <Footer/>

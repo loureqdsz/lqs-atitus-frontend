@@ -8,7 +8,7 @@
 .Description-Container{
     display: flex;
     align-items: flex-end;
-    width: 85%;
+    min-width: 85%;
 }
 
 .Primary-Container {
@@ -59,7 +59,9 @@
 
 .More-Information {
     display: flex;
-    align-items: end;
+    justify-content: flex-end;
+    align-items: flex-end;
+    min-width: 15%;
 }
 
 .More-Information .Label-Description {
@@ -69,6 +71,7 @@
 
 .Label-Click {
     display: flex;
+    margin-right: 10px;
 }
 
 @media (max-width: 450px) {
