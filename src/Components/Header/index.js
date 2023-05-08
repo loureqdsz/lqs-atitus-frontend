@@ -5,7 +5,7 @@ import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import { styled } from '@mui/material/styles';
 import { grey } from '@mui/material/colors';
 
-const Header = ({ backButtonClick }) => {
+const Header = ({ backButtonClick, userInformation }) => {
 
     //------------ Styled Components ---------------------------
     const BackButton = styled(IconButton)({
@@ -30,7 +30,7 @@ const Header = ({ backButtonClick }) => {
                         </span>
                     </div>
                 </div>
-                <Profile/>
+                <Profile userInformation={userInformation}/>
             </div>
         </>
     );

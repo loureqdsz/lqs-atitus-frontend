@@ -1,15 +1,20 @@
 import './profile.css';
 // import ProfileDefault from '../../Assets/Images/Profile-Default.png'
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Button from '@mui/material/Button'
 import { styled } from '@mui/material/styles';
 import { grey } from '@mui/material/colors';
 import { useNavigate } from "react-router-dom";
 
-const Profile = () => {
+const Profile = ({ userInformation }) => {
   const navigate = useNavigate()
-  const [ isLogged, setIsLogged ] = useState(false)
-  const [ username, setUsername ] = useState('Lourenco Quadros de Souza')
+  const [ userInfo, setUserInfo ] = useState(null)
+
+  //------------ UseEffect Functions ------------------------
+
+  useEffect(() => {
+      setUserInfo(userInformation)
+  }, [userInformation])
 
   //------------ Styled Components ---------------------------
   const LoginButton = styled(Button)({
@@ -45,7 +50,7 @@ const Profile = () => {
             <div className="Profile-Container">
                 <div className="Profile-Second-Container">
                   <div className="Profile-Display-Name">
-                    <span className='Username-Text'>{username}</span>
+                    <span className='Username-Text'>{userInfo?.name}</span>
                   </div>
                   <div className="Profile-Button-Container">
                     <LogoutButton size="small" onClick={() => handleLogoutClick()}>Sair</LogoutButton>
@@ -57,7 +62,7 @@ const Profile = () => {
   }
 
   const renderProfile = () => {
-    if (isLogged) {
+    if (userInformation) {
       return renderLoginInfo()
     }
 
