@@ -13,7 +13,8 @@ import { useNavigate } from "react-router-dom";
 
 const MenuPage = () => {
     const navigate = useNavigate();
-    const [textBoxValue, setTextBoxValue] = useState("")    
+    const [ userInformation, setUserInformation ] = useState(null)
+    const [textBoxValue, setTextBoxValue] = useState("")
     const [ allMenuList, setAllMenuList ] = useState(null)
     const [ menuListSubset, setMenuListSubset ] = useState(null)
     const [ isOpen, setIsOpen ] = useState(false)
@@ -43,13 +44,39 @@ const MenuPage = () => {
         } else {
             console.log('Dados Carregados')
         }
-      }, [])
+    }, [])
+
+    useEffect(() => {
+        const params = new URLSearchParams(window.location.search)
+        const dataIsLoaded = params.get('dataLoaded')
+        if (dataIsLoaded === 'true') {
+            getUserInformation()
+        }
+    }, [])
 
     useEffect(() => {
         handleSearch(textBoxValue)
     }, [textBoxValue])
 
     //------------ Util Functions -----------------------------
+
+    const getUserInformation = () => {
+        fetch(
+            'http://localhost:3001/user-info', {
+                method: 'GET'
+            }
+          ).then((res) => {
+            if (res.status) {
+                return res.json()
+            }
+        }).then((data) => {
+            if (!data || data.error) {
+                console.log('Ocorreu um erro na request')
+                return
+            }
+            setUserInformation(data)
+        })
+    }
 
     const getAllMenuData = () => {
         fetch(
@@ -200,7 +227,7 @@ const MenuPage = () => {
 
     return (
         <div className="Menu">
-            <Header backButtonClick={handleBackButtonClick}/>
+            <Header backButtonClick={handleBackButtonClick} userInformation={userInformation}/>
             <div className="Table-Header">
                 <div className="Searchbox-Content">
                     <TextBox id="search-text-box" value={textBoxValue} onChange={setTextBoxValue}/>

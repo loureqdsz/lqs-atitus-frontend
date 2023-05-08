@@ -67,6 +67,36 @@ const LoginPage = () => {
           },
         },
       });
+    
+    //------------ Util Functions -----------------------------
+
+    const getGoogleAuthentication = async () => {
+        try {
+            fetch(
+                'http://localhost:3001/auth/google', {
+                    method: 'GET',
+                }
+              ).then((res) => {
+                  if (res.status) {
+                      return res.json()
+                  }
+              }).then((data) => {
+                  if (!data || data.error) {
+                      console.log('Ocorreu um erro na request')
+                      return
+                  }
+                  window.location.href = data.redirectUrl
+              })
+        } catch (err) {
+            console.log(err)
+        }
+    }
+
+    //------------ Handle Functions -----------------------------
+    
+    const handleGoogleClick = async () => {
+        await getGoogleAuthentication()
+    }
     //------------ ------------------ ---------------------------
 
     return (
@@ -110,7 +140,7 @@ const LoginPage = () => {
                     <div className="Login-Buttons">
                         <SignInButton variant="contained" fullWidth>Entrar com a Conta</SignInButton>
                         <SignUpButton fullWidth>Registrar-se</SignUpButton>
-                        <GoogleSignUpButton fullWidth startIcon={<GoogleIcon />}>Entrar com o Google</GoogleSignUpButton>
+                        <GoogleSignUpButton fullWidth startIcon={<GoogleIcon />} onClick={handleGoogleClick}>Entrar com o Google</GoogleSignUpButton>
                     </div>
                     <div className="Login-Separator" />
                 </div>
