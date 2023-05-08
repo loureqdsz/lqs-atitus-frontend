@@ -49,5 +49,9 @@
 @media (max-width: 550px) {
     .Text-Box-div{
         width: 100%;
-    }    
+    }
+
+    .Searchbox-Content {    
+        width: 60%;
+    }
 }

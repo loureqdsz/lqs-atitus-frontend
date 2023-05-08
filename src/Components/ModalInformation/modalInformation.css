@@ -7,7 +7,7 @@
 
 .Modal-Title {
     display: flex;
-    width: 540px;
+    width: 100%;
     justify-content: space-between;
     margin-bottom: 2px;
 }

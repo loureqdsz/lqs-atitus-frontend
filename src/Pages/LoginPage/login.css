@@ -85,3 +85,23 @@
 .Login-Buttons{
     margin-bottom: 10px;
 }
+
+@media (max-width: 550px) {
+    .Login-Content {
+        width: 80%;
+        height: 60%;
+    }
+
+    .Login-Restaurant-Logo {
+        width: 50%;
+        height: 75%;
+    }
+
+    .Login-Input-Content{
+        margin-bottom: 10px;
+    }
+
+    .Login-Logo-Content {
+        margin-bottom: 15px;
+    }
+}
