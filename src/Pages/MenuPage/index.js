@@ -28,6 +28,7 @@ const MenuPage = () => {
         description: ''
     }
     //------------ Styled Components ---------------------------
+
     const AddButton = styled(Button)({
         color: "white",
         backgroundColor: 'rgba(237,54,40,255)',
