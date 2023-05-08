@@ -2,6 +2,7 @@
     display: block;
     max-width: 110vh;
     max-height: 120vh;
+    min-width: 50vh;
     padding: 3vh;
 }
 
@@ -110,4 +111,10 @@
     font-weight: bold;
     color: rgb(90, 89, 89);
     margin-bottom: 7px;
+}
+
+@media (max-width: 450px) {
+    .Modal-Container{
+        min-width: 0vh;
+    }    
 }

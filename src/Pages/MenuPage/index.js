@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable no-restricted-globals */
 import './menuPage.css';
 import { useEffect, useState } from 'react';
@@ -46,7 +47,7 @@ const MenuPage = () => {
         } else {
             console.log('Dados Carregados')
         }
-    }, [])
+    })
 
     useEffect(() => {
         const params = new URLSearchParams(window.location.search)
